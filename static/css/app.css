@@ -1,0 +1,28 @@
+body {
+    margin: auto;
+    padding-top: 2px;
+    margin-bottom: 150px;
+}
+
+.products {
+    margin-bottom: 25px;
+}
+
+.jakaja {
+    border-bottom: solid 2px #5e5e5e;
+    margin: 25px;
+}
+
+.tokarivi {
+    margin-bottom: 50px;
+}
+.row.ekarivi .glyphicon {
+    line-height: inherit;
+}
+.row.ekarivi >  {
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}

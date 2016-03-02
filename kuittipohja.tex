@@ -1,0 +1,59 @@
+\documentclass[10pt,a4paper]{minimal}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[finnish]{babel}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+%\usepackage{showframe}
+\usepackage[official]{eurosym}
+\usepackage{tabularx}
+
+
+\headheight=3cm
+\headwidth=19cm
+%\voffset = -1.2in
+%\hoffset = -1.5in
+\headsep = .5cm
+\textwidth = 19cm
+\textheight = 20cm
+%\topmargin = 0pt
+%\oddsidemargin = 0pt
+\footskip = 1cm
+\fboxsep=0pt
+
+\fancyhead{}
+\fancyfoot{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\setlogo}[1]{
+       \includegraphics[height=2cm]{#1}
+}
+
+\lhead{\setlogo{batman}\\ YRITYS \\ OSOITE \\ puh PUHNRO, MAIL }
+\chead{}
+\rhead{\raggedleft LASKU: LNRO \\ \vspace{2ex} PVM \\ Viite: VIITE \\ Asiakas: ASNRO }
+\lfoot{PANKKI: PANKKI \\ TILILLE: TILI \\ IBAN: IBAN \\ ERÄPÄIVÄ: EPV }
+\cfoot{}
+\rfoot{VEROA: VERO \euro{} \\ VEROTON: VEROTON \euro{} \\ YHTEENSÄ: YHT \euro{} \\ =============}
+
+\begin{document}
+	%Laskutettava
+	\noindent
+	HLO \\
+	ASOS \\
+	ASPUH \vspace{1cm} \\ 
+	\textbf{Laskutettavat palvelut/tuotteet:}\\
+	\rule{19cm}{0.4pt}\vspace{0.5cm}\\
+	\begin{tabularx}{\textwidth}{XXXXXXX}
+		\textbf{Tuote} & \textbf{Kuvaus} & \textbf{Takuu} & \textbf{Alv \%}  & \textbf{á} & \textbf{á+alv} & \textbf{Summa}\\ 
+		TNRO & KUV & TAK & TALV & HINTA \euro{} & HALV \euro{} & SUM \\ 
+	\end{tabularx}
+	 
+\end{document}

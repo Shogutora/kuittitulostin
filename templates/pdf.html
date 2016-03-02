@@ -1,0 +1,191 @@
+{% extends "master.html" %}
+<a href="master.html" id="" title="master">master</a>
+{% block pagecontent %}
+    {% raw %}
+    <div ng-controller="laskuCtrl">
+
+        <form name="myForm" novalidate>
+            <div class="control-group">
+                <div class="row ekarivi">
+                    <div class="col-xs-4">
+                        <div class="form-group">
+                            <label for="yritys">Yrityksen nimi</label>
+                            <input type="text" class="form-control" id="yritys" ng-model="data.yritys" placeholder="Nimi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="yritys2">Osoite</label>
+                            <input type="text" class="form-control" id="yritys2" ng-model="data.osoite"
+                                   placeholder="Koko osoite">
+                        </div>
+                        <div class="form-group">
+                            <label for="yritys4">Yrityksen puhelinnumero</label>
+                            <input type="text" class="form-control" id="yritys4" ng-model="data.puhnro"
+                                   placeholder="Numero">
+                        </div>
+                        <div class="form-group">
+                            <label for="yritys5">Yrityksen sähköposti</label>
+                            <input type="text" class="form-control" id="yritys5" ng-model="data.mail" placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <div class="form-group">
+                            <label for="yritys6">Laskun numero</label>
+                            <input type="text" class="form-control" id="yritys6" ng-model="data.lnro" placeholder="Nro">
+                        </div>
+                        <div class="form-group">
+                            <label for="tanaan">Laskun päiväys</label>
+
+                            <div class="input-group">
+                                <input type="text" id="tanaan" class="form-control" data-datepicker-popup="{{format}}"
+                                       ng-model="data.lpv" is-open="opened1" datepicker-options="dateOptions"
+                                       date-disabled="disabled(date, mode)" ng-required="true" current-text="Tänään"
+                                       clear-text="Tyhjennä"/>
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event,'opened1')"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanaan">Laskun eräpäivä</label>
+
+                            <div class="input-group">
+                                <input type="text" id="tanaan" class="form-control" data-datepicker-popup="{{format}}"
+                                       ng-model="data.epv" is-open="opened2" datepicker-options="dateOptions"
+                                       date-disabled="disabled(date, mode)" ng-required="true" current-text="Tänään"
+                                       clear-text="Tyhjennä"/>
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event,'opened2')"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="yritys8">Viite</label>
+                            <input type="text" class="form-control" id="yritys8" ng-model="data.viite"
+                                   placeholder="Viitenro">
+                        </div>
+                        <div class="form-group">
+                            <label for="yritys9">Asiakasnumero</label>
+                            <input type="text" class="form-control" id="yritys9" ng-model="data.asnro"
+                                   placeholder="Asiakasnro">
+                        </div>
+                    </div>
+                </div>
+                <div class="row jakaja"></div>
+                <div class="row tokarivi">
+                    <div class="col-xs-4">
+                        <div class="form-group">
+                            <label for="asiakas">Asiakkaan nimi</label>
+                            <input type="text" class="form-control" id="asiakas" ng-model="data.hlo" placeholder="Nimi">
+                        </div>
+                        <div class="form-group">
+                            <label for="asiakas">Laskutusosoite</label>
+                            <input type="text" class="form-control" id="asiakas" ng-model="data.asos" placeholder="Osoite">
+                        </div>
+                        <div class="form-group">
+                            <label for="asiakas">Puhelinnumero</label>
+                            <input type="text" class="form-control" id="asiakas" ng-model="data.aspuh" placeholder="Puh.">
+                        </div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <div class="form-group">
+                            <label for="asiakas">Pankki</label>
+                            <input type="text" class="form-control" id="asiakas" ng-model="data.pankki"
+                                   placeholder="Pankin nimi">
+                        </div>
+                        <div class="form-group">
+                            <label for="asiakas">Tilinumero</label>
+                            <input type="text" class="form-control" id="asiakas" ng-model="data.tili"
+                                   placeholder="Esim. FI12347854">
+                        </div>
+                        <div class="form-group">
+                            <label for="asiakas">IBAN</label>
+                            <input type="text" class="form-control" id="asiakas" ng-model="data.iban"
+                                   placeholder="Esim NDEAFIHH.">
+                        </div>
+                    </div>
+                </div>
+                <div class="products">
+                    <table class="table table-responsive">
+                        <thead>
+                        <tr>
+                            <th>
+                                <b>Tuotenro:</b>
+                            </th>
+                            <th>
+                                <b>Kuvaus:</b>
+                            </th>
+                            <th>
+                                <b>Hinta:</b>
+                            </th>
+                            <th>
+                                <b>Alv %:</b>
+                            </th>
+                            <th>
+                                <b>Kpl:</b>
+                            </th>
+                            <th>
+                                <b>á hinta+alv:</b>
+                            </th>
+                            <th>
+                                <b>Summa:</b>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="tuote in data.tuotteet">
+                            <td>
+                                <input type="text" class="form-control" id="asiakas" ng-model="tuote.id"
+                                       placeholder="Tuotenro">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="asiakas" ng-model="tuote.kuvaus"
+                                       placeholder="Tuotteen kuvaus">
+
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" id="asiakas" ng-model="tuote.hinta"
+                                       ng-change="calcPrices(tuote)"
+                                       placeholder="Hinta">
+
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" id="asiakas" ng-model="tuote.alv"
+                                       ng-change="calcPrices(tuote)"
+                                       placeholder="Esim 25%">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" id="asiakas" ng-change="calcPrices(tuote)"
+                                       ng-model="tuote.kpl"
+                                       placeholder="Esim. 1">
+                            </td>
+                            <td>
+                                <span class="">{{ tuote.halv.toFixed(2) }}</span>
+                            </td>
+                            <td>
+                                <span class="">{{ tuote.summa.toFixed(2) }}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button class="btn" ng-click="addRow(data.tuotteet)">Lisää uusi tuoterivi</button>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success col-xs-12" ng-click="render()"><span
+                                ng-bind="submitText"></span></button>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% endraw %}
+
+{% endblock %}

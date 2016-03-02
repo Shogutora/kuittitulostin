@@ -1,0 +1,34 @@
+
+<html ng-app="lasku">
+<head>
+    <title class="main">{{ title }}</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+    <script src="https://code.angularjs.org/1.3.2/i18n/angular-locale_fi-fi.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script type="text/javascript" src="../static/js/functions.js"></script>
+    <script type="text/javascript" src="../static/js/FileSaver.js"></script>
+
+    <link rel="stylesheet" media="screen" type="text/css" href="../static/css/bootstrap.css"/>
+    <link rel="stylesheet" media="screen" type="text/css" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" media="screen" type="text/css" href="../static/css/app.css"/>
+
+
+</head>
+
+<body>
+<h1 class="text-info text-center">Laskutulostin</h1></a>
+
+<div class="container">
+
+    {% block pagecontent %}
+
+    <p>Template rendering failed.</p>
+
+    {% endblock %}
+
+</div>
+
+</body>
+</html>
+
